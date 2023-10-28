@@ -7,7 +7,7 @@ class cinema():
         self.tela=tk.Tk()
         self.tela.geometry("800x500+500+50")
         self.tela.title("Pesquisa...")
-        self.tela.iconbitmap("lupa.ico")
+        self.tela.iconbitmap("atv_1-fastech/lupa.ico")
         self.tela.resizable(0,0)
         self.guarda=[]
         self.gra_nomes,self.gra_valores=[],[]
