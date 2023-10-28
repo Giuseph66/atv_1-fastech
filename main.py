@@ -58,8 +58,13 @@ class cinema():
                 self.idade.delete(0, tk.END)
                 self.idade.focus()
             else:
-                self.guarda.append([self.name,self.age,self.opniao])
-                self.novos_dados()
+                if int(self.age) ==0:
+                    self.idade.delete(0, tk.END)
+                    self.idade.focus()
+                    messagebox.showerror("Erro", "Nao é possivel ter 0 anos.")
+                else:
+                    self.guarda.append([self.name,self.age,self.opniao])
+                    self.novos_dados()
         else:
             messagebox.showinfo("Error","Responda corretamente!")
             self.nome.focus()
@@ -89,11 +94,11 @@ class cinema():
                     nome_mais_velha = nome
                     ideia_mais_velha=avaliacao
 
-
-                if idade_mais_nova is None or idade < idade_mais_nova:
-                    idade_mais_nova = idade
-                    nome_mais_nova = nome
-                    ideia_mais_nova=avaliacao
+                if idade !="00":    
+                    if idade_mais_nova is None or idade < idade_mais_nova:
+                        idade_mais_nova = idade
+                        nome_mais_nova = nome
+                        ideia_mais_nova=avaliacao
 
             if nome_mais_velha is not None:
                 velho=(f"A pessoa mais velha a responder foi o(a) {nome_mais_velha}, com {idade_mais_velha} anos que achou {ideia_mais_velha} o atendimento.")
